@@ -1,0 +1,18 @@
+{
+  "remote": {
+    "name": "remote-example",
+    "versions": [
+      "2.x"
+    ]
+  },
+  "host": {
+    "name": "host-example",
+    "versions": [
+      "1.x"
+    ]
+  },
+  "supportedContracts": [
+    "1.0.x"
+  ],
+  "notes": "Update this when bumping contract version. Keep at least one previous minor supported."
+}

@@ -1,0 +1,24 @@
+{
+  "id": "booking-create",
+  "description": "Happy path: remote updates special request",
+  "tags": {
+    "version": "1.x",
+    "target": "prod",
+    "locale": "en-US"
+  },
+  "requires": {
+    "events": [
+      "bookingEvent"
+    ],
+    "callbacks": [
+      "onSpecialRequestChange"
+    ]
+  },
+  "negative": [
+    "callback:missing"
+  ],
+  "golden": {
+    "callback.onSpecialRequestChange": "contracts/examples/callback.onSpecialRequestChange.json",
+    "event.bookingEvent": "contracts/examples/event.bookingEvent.json"
+  }
+}

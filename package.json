@@ -1,0 +1,27 @@
+{
+  "name": "mfe-contract-testing-playwright",
+  "version": "1.0.0",
+  "description": "Contract-first testing for Module Federation MFEs with Playwright",
+  "scripts": {
+    "test": "npx playwright test",
+    "test:fake": "npx playwright test --grep '@fake|@contract'",
+    "test:real": "npx playwright test --grep-invert '@fake|@contract'",
+    "test:headed": "npx playwright test --headed --workers=1",
+    "test:debug": "npx playwright test --debug",
+    "test:ui": "npx playwright test --ui",
+    "test:trace": "npx playwright test --trace on",
+    "test:report": "npx playwright show-report",
+    "test:trace-viewer": "npx playwright show-trace",
+    "generate:fake": "node scripts/generate-fake.mjs",
+    "pretest": "npm run generate:fake",
+    "serve": "npx http-server -p 5173 public",
+    "codegen": "npx playwright codegen http://localhost:5173",
+    "codegen:har": "npx playwright codegen --save-har=har/remoteEntry.har http://localhost:5173"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.0",
+    "http-server": "^14.1.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}

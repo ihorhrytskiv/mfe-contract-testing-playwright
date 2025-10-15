@@ -1,0 +1,6 @@
+{
+  "name": "@contracts/host-remote",
+  "version": "1.0.0",
+  "description": "Versioned contract artifacts for host\u2194remote",
+  "private": true
+}

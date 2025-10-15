@@ -1,0 +1,35 @@
+{
+  "remote": "aide-chat",
+  "current": "1.0.0",
+  "contracts": {
+    "1.0.0": {
+      "hosts": [
+        {
+          "id": "mspa-booking-form",
+          "env": {
+            "target": "prod",
+            "version": "1.12.3",
+            "baseURL": "http://localhost:5173"
+          },
+          "scenarios": [
+            "booking-create",
+            "booking-cancel"
+          ],
+          "compat": ">=1.0.0 <2.0.0"
+        },
+        {
+          "id": "rg-page",
+          "env": {
+            "target": "stage",
+            "branch": "exp/offer-variants",
+            "baseURL": "http://localhost:5173"
+          },
+          "scenarios": [
+            "booking-create"
+          ],
+          "compat": "~1.0"
+        }
+      ]
+    }
+  }
+}

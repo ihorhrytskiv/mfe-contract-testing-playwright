@@ -1,0 +1,20 @@
+<!doctype html>
+<html><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Demo Host</title><style>body{font-family:sans-serif;padding:20px}</style></head>
+<body>
+<h1>Demo Host</h1>
+<div data-testid="remote-slot">Remote mounts here</div>
+<div data-testid="booking-widget" style="display:none">Booking Widget</div>
+<button id="choose" aria-label="choose room">Choose room</button>
+<button id="continue" aria-label="continue">Continue</button>
+<div id="summary" style="display:none">Booking Summary</div>
+<script>
+document.getElementById('choose').addEventListener('click', () => {
+  document.querySelector('[data-testid=booking-widget]').style.display = 'block';
+});
+document.getElementById('continue').addEventListener('click', () => {
+  document.getElementById('summary').style.display = 'block';
+});
+window.onSpecialRequestChange = (v) => console.log('host received special request:', v);
+</script>
+</body></html>

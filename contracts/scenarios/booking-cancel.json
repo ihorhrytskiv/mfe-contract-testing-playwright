@@ -1,0 +1,18 @@
+{
+  "id": "booking-cancel",
+  "description": "Negative/alt path: cancellation flow exists",
+  "tags": {
+    "version": "1.x",
+    "target": "stage",
+    "locale": "en-US"
+  },
+  "requires": {
+    "events": [
+      "bookingEvent"
+    ],
+    "callbacks": []
+  },
+  "negative": [
+    "mcp:timeout"
+  ]
+}
