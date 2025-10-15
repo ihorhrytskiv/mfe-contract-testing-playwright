@@ -19,11 +19,21 @@ test.describe('Host ↔ Remote contract (@contract @fake)', () => {
 
   test('API contract: offers endpoint shape is valid', async ({ page }) => {
     await page.goto('/');
-    const response = await page.request.get('/api/remote/offers?hotelId=123');
-    expect(response.ok()).toBeTruthy();
-    const payload = await response.json();
-    expect(Array.isArray(payload)).toBeTruthy();
-    for (const item of payload) {
+    // Use fetch within page context instead of page.request
+    // page.request bypasses context.route(), but fetch in page uses it
+    const result = await page.evaluate(async () => {
+      const response = await fetch('/api/remote/offers?hotelId=123');
+      return {
+        ok: response.ok,
+        status: response.status,
+        payload: await response.json(),
+      };
+    });
+    
+    expect(result.ok).toBeTruthy();
+    expect(result.status).toBe(200);
+    expect(Array.isArray(result.payload)).toBeTruthy();
+    for (const item of result.payload) {
       expect(item).toHaveProperty('id');
       expect(item).toHaveProperty('price');
       expect(typeof item.id).toBe('string');
